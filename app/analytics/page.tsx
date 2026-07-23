@@ -36,7 +36,7 @@ export default function AnalyticsPage() {
           <div>
             <h1 className="text-3xl font-extrabold tracking-tight text-white flex items-center gap-3">
               Kamio Infrastructure Analytics
-              <span className="inline-block w-3 h-3 bg-green-500 rounded-full animate-pulse" title="Live System"></span>
+              <span className="inline-block w-3 h-3 bg-green-500 rounded-full animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]" title="Live System"></span>
             </h1>
             <p className="text-gray-400 mt-1">
               Real-time telemetry and traffic monitoring for <code className="text-blue-400">kamio-website</code>.
