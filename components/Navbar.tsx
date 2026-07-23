@@ -74,7 +74,7 @@ export default function Navbar() {
               <a href="/store" className="hover:text-[#60A5FA] transition">Store</a>
               <a href="/dukungan" className="hover:text-[#60A5FA] transition">{t('Dukungan', 'Support')}</a>
               <a href="/control" className="hover:text-[#60A5FA] transition">{t('Kontrol', 'Kontrol')}</a>
-              <a href="/Analytics" className="hover:text-[#60A5FA] transition">{t('Analytics', 'Analytics')}</a>
+              <a href="/analytics" className="hover:text-[#60A5FA] transition">{t('Analytics', 'Analytics')}</a>
             </div>
           </div>
 
