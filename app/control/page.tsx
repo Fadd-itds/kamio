@@ -275,7 +275,7 @@ export default function ControlCenterPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {quickStats.map((stat: any, idx: number) => (
-              <div key={idx} className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 flex items-center justify-between shadow-sm">
+              <div key={idx} className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 flex items-center justify-between shadow-sm relative">
                 <div className="space-y-1">
                   <span className="text-xs text-slate-400 font-medium">{stat.label}</span>
                   <div className={`text-xl sm:text-2xl font-extrabold font-mono ${stat.highlight ? 'text-emerald-400' : 'text-white'}`}>
@@ -315,7 +315,7 @@ export default function ControlCenterPage() {
           </div>
         </div>
 
-        {/* Traffic Overview & Revenue Analytics (Protected by SafeChartWrapper) */}
+        {/* Traffic Overview & Revenue Analytics */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           
           {/* Traffic Overview Chart */}
