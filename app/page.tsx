@@ -79,20 +79,62 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 2. Trusted By Section */}
         <section className="border-y border-slate-200 dark:border-[#1E293B] bg-slate-100/50 dark:bg-[#020617]/50 py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-xs uppercase tracking-widest text-slate-500 dark:text-[#CBD5E1]/60 font-semibold mb-8">
               {t('Dipercaya Oleh Mitra & Teknologi Global', 'Trusted by Global Partners & Technologies')}
             </p>
+
+            {/* Gunakan Flex / Grid dengan items-center dan gap yang konsisten */}
             <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-70">
-              <span className="text-lg font-bold tracking-wider text-slate-600 dark:text-[#CBD5E1]">Google Play</span>
-              <span className="text-lg font-bold tracking-wider text-slate-600 dark:text-[#CBD5E1]">Hostinger</span>
-              <span className="text-lg font-bold tracking-wider text-slate-600 dark:text-[#CBD5E1]">Cloudflare</span>
-              <span className="text-lg font-bold tracking-wider text-slate-600 dark:text-[#CBD5E1]">Vercel</span>
-              <span className="text-lg font-bold tracking-wider text-slate-600 dark:text-[#CBD5E1]">GitHub</span>
+
+              {/* Contoh Logo 1: Google Play */}
+              <div className="h-8 flex items-center justify-center">
+                <img 
+                 src="/gp.png"
+                 alt="Google Play"
+                 className="max-h-full w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                />
+              </div>
+
+              {/* Contoh Logo 2: Hostinger */}
+              <div className="h-8 flex items-center justify-center">
+                <img
+                 src="/ht.png"
+                 alt="Hostinger"
+                 className="max-h-full w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                />
+              </div>
+
+              {/* Contoh Logo 3: Cloudflare */}
+              <div className="h-8 flex items-center justify-center">
+                <img
+                 src="/cf.png"
+                 alt="Cloudflare"
+                 className="max-h-full w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                />
+              </div>
+
+              {/* Contoh Logo 4: Midtrand */}
+              <div className="h-8 flex items-center justify-center">
+                <img
+                 src="/ms.png"
+                 alt="Vercel"
+                 className="max-h-full w-auto object-contain grayscale hover:grayscale-0 transition duration-300 dark:invert"
+                />
+              </div>
+
+              {/* Contoh Logo 5: GitHub */}
+              <div className="h-8 flex items-center justify-center">
+                <img
+                 src="/yf.png"
+                 alt="Yahoo! Finance"
+                 className="max-h-full w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+                />
+              </div>
+
             </div>
-          </div>
+           </div>
         </section>
 
         {/* 3. Produk Kamio */}
