@@ -4,11 +4,13 @@ import { useState } from "react";
 
 export default function AnalyticsPage() {
   const [stats, setStats] = useState({
-    requests: "2,840 Views",
-    uniques: "1,120 Visitors",
+    assetRequests: "102",
+    cacheHitRate: "77.45%",
+    invocations: "131",
+    errors: "0",
+    cpuTime: "32.18 ms",
     status: "Operational (100% Uptime)",
     protection: "Cloudflare WAF Active",
-    latency: "14ms",
     lastUpdated: new Date().toLocaleTimeString(),
   });
   const [loading, setLoading] = useState(false);
@@ -17,11 +19,13 @@ export default function AnalyticsPage() {
     setLoading(true);
     setTimeout(() => {
       setStats({
-        requests: "2,845 Views",
-        uniques: "1,125 Visitors",
+        assetRequests: "102",
+        cacheHitRate: "77.45%",
+        invocations: "131",
+        errors: "0",
+        cpuTime: "32.18 ms",
         status: "Operational (100% Uptime)",
         protection: "Cloudflare WAF Active",
-        latency: "12ms",
         lastUpdated: new Date().toLocaleTimeString(),
       });
       setLoading(false);
@@ -51,47 +55,42 @@ export default function AnalyticsPage() {
           </button>
         </div>
 
-        {/* Grid Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {/* Cloudflare Workers Metrics Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Total Requests</h3>
-            <p className="text-3xl font-bold mt-2 text-blue-400">{stats.requests}</p>
-            <span className="text-xs text-green-400 mt-2 inline-block">↑ 12.4% from last hour</span>
-          </div>
-
-          <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Unique Visitors</h3>
-            <p className="text-3xl font-bold mt-2 text-indigo-400">{stats.uniques}</p>
-            <span className="text-xs text-gray-400 mt-2 inline-block">Global Edge Distribution</span>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Asset Requests</h3>
+            <p className="text-3xl font-bold mt-2 text-blue-400">{stats.assetRequests}</p>
+            <span className="text-xs text-green-400 mt-2 inline-block">↑ Active Traffic</span>
           </div>
 
           <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Edge Latency</h3>
-            <p className="text-3xl font-bold mt-2 text-amber-400">{stats.latency}</p>
-            <span className="text-xs text-blue-400 mt-2 inline-block">Optimized via Cloudflare CDN</span>
-          </div>
-        </div>
-
-        {/* System Health Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl">
-            <h4 className="text-sm font-semibold text-gray-300 mb-4">Server Status</h4>
-            <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-xl border border-gray-700/50">
-              <span className="text-sm text-gray-300">Cloudflare Workers Node</span>
-              <span className="text-xs font-bold px-3 py-1 bg-green-500/20 text-green-400 rounded-full border border-green-500/30">
-                {stats.status}
-              </span>
-            </div>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Cache Hit Rate</h3>
+            <p className="text-3xl font-bold mt-2 text-indigo-400">{stats.cacheHitRate}</p>
+            <span className="text-xs text-gray-400 mt-2 inline-block">Edge Optimization</span>
           </div>
 
-          <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl">
-            <h4 className="text-sm font-semibold text-gray-300 mb-4">Security & Shield</h4>
-            <div className="flex items-center justify-between p-3 bg-gray-800/50 rounded-xl border border-gray-700/50">
-              <span className="text-sm text-gray-300">WAF Protection</span>
-              <span className="text-xs font-bold px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full border border-purple-500/30">
-                {stats.protection}
-              </span>
-            </div>
+          <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Invocations</h3>
+            <p className="text-3xl font-bold mt-2 text-emerald-400">{stats.invocations}</p>
+            <span className="text-xs text-gray-400 mt-2 inline-block">Worker Executions</span>
+          </div>
+
+          <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Errors</h3>
+            <p className="text-3xl font-bold mt-2 text-rose-400">{stats.errors}</p>
+            <span className="text-xs text-green-400 mt-2 inline-block">Clean Execution</span>
+          </div>
+
+          <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Median CPU Time</h3>
+            <p className="text-3xl font-bold mt-2 text-amber-400">{stats.cpuTime}</p>
+            <span className="text-xs text-blue-400 mt-2 inline-block">High Performance</span>
+          </div>
+
+          <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">WAF Protection</h3>
+            <p className="text-lg font-bold mt-2 text-purple-400">{stats.protection}</p>
+            <span className="text-xs text-purple-300 mt-2 inline-block">Cloudflare Shield</span>
           </div>
         </div>
 
