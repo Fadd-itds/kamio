@@ -4,11 +4,11 @@ import { useState } from "react";
 
 export default function AnalyticsPage() {
   const [stats, setStats] = useState({
-    assetRequests: "102",
-    cacheHitRate: "77.45%",
-    invocations: "131",
-    errors: "0",
-    cpuTime: "32.18 ms",
+    cpuTime: "32.7 ms",
+    wallTime: "35.35 ms",
+    requestDuration: "35.22 ms",
+    asset4xx: "0",
+    asset5xx: "0",
     status: "Operational (100% Uptime)",
     protection: "Cloudflare WAF Active",
     lastUpdated: new Date().toLocaleTimeString(),
@@ -19,11 +19,11 @@ export default function AnalyticsPage() {
     setLoading(true);
     setTimeout(() => {
       setStats({
-        assetRequests: "102",
-        cacheHitRate: "77.45%",
-        invocations: "131",
-        errors: "0",
-        cpuTime: "32.18 ms",
+        cpuTime: "32.7 ms",
+        wallTime: "35.35 ms",
+        requestDuration: "35.22 ms",
+        asset4xx: "0",
+        asset5xx: "0",
         status: "Operational (100% Uptime)",
         protection: "Cloudflare WAF Active",
         lastUpdated: new Date().toLocaleTimeString(),
@@ -55,36 +55,36 @@ export default function AnalyticsPage() {
           </button>
         </div>
 
-        {/* Cloudflare Workers Metrics Grid */}
+        {/* Cloudflare Workers Real Metrics Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Asset Requests</h3>
-            <p className="text-3xl font-bold mt-2 text-blue-400">{stats.assetRequests}</p>
-            <span className="text-xs text-green-400 mt-2 inline-block">↑ Active Traffic</span>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">CPU Time</h3>
+            <p className="text-3xl font-bold mt-2 text-blue-400">{stats.cpuTime}</p>
+            <span className="text-xs text-blue-300 mt-2 inline-block">Worker Processing</span>
           </div>
 
           <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Cache Hit Rate</h3>
-            <p className="text-3xl font-bold mt-2 text-indigo-400">{stats.cacheHitRate}</p>
-            <span className="text-xs text-gray-400 mt-2 inline-block">Edge Optimization</span>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Wall Time</h3>
+            <p className="text-3xl font-bold mt-2 text-indigo-400">{stats.wallTime}</p>
+            <span className="text-xs text-gray-400 mt-2 inline-block">Total Elapsed Time</span>
           </div>
 
           <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Invocations</h3>
-            <p className="text-3xl font-bold mt-2 text-emerald-400">{stats.invocations}</p>
-            <span className="text-xs text-gray-400 mt-2 inline-block">Worker Executions</span>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Request Duration</h3>
+            <p className="text-3xl font-bold mt-2 text-amber-400">{stats.requestDuration}</p>
+            <span className="text-xs text-amber-300 mt-2 inline-block">Edge Response Speed</span>
           </div>
 
           <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Errors</h3>
-            <p className="text-3xl font-bold mt-2 text-rose-400">{stats.errors}</p>
-            <span className="text-xs text-green-400 mt-2 inline-block">Clean Execution</span>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Asset 4xx Responses</h3>
+            <p className="text-3xl font-bold mt-2 text-rose-400">{stats.asset4xx}</p>
+            <span className="text-xs text-green-400 mt-2 inline-block">No Client Errors</span>
           </div>
 
           <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Median CPU Time</h3>
-            <p className="text-3xl font-bold mt-2 text-amber-400">{stats.cpuTime}</p>
-            <span className="text-xs text-blue-400 mt-2 inline-block">High Performance</span>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Asset 5xx Responses</h3>
+            <p className="text-3xl font-bold mt-2 text-emerald-400">{stats.asset5xx}</p>
+            <span className="text-xs text-green-400 mt-2 inline-block">No Server Errors</span>
           </div>
 
           <div className="bg-gray-900/80 backdrop-blur border border-gray-800 p-6 rounded-2xl shadow-xl">
